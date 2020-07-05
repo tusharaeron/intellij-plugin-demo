@@ -22,6 +22,11 @@
             <implementation-class>components.ProjectComponentExample</implementation-class>
         </component>
     </project-components>
+    <module-components>
+        <component>
+            <implementation-class>components.ModuleLevelComponent</implementation-class>
+        </component>
+    </module-components>
 
     <extensions defaultExtensionNs="com.intellij">
         <preloadingActivity implementation="extensions.PreLoadingActivity"/>
@@ -44,6 +49,7 @@
             <action id="MyPlugin.actions.HelloAction" class="action.HelloAction" text="Hello" description="Says hello"
                     icon="/icons/ic_check_circle.svg">
                 <add-to-group group-id="MainMenu" anchor="first" />
+                <keyboard-shortcut first-keystroke="control alt k" keymap="$default"/>
             </action>
         </group>
     </actions>

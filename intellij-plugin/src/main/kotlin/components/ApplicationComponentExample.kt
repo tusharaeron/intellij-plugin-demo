@@ -1,3 +1,5 @@
+package components
+
 import com.intellij.openapi.components.ApplicationComponent
 import com.intellij.openapi.diagnostic.Logger
 
@@ -16,6 +18,6 @@ class ApplicationComponentExample : ApplicationComponent {
     }
 
     override fun getComponentName(): String {
-        return "ApplicationComponentExample"
+        return "components.ApplicationComponentExample"
     }
 }

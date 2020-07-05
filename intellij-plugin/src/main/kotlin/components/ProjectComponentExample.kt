@@ -1,13 +1,8 @@
+package components
+
 import com.intellij.openapi.components.ProjectComponent
 import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.project.Project
-import java.io.File
-import java.io.FilenameFilter
-import com.google.common.io.Files.isFile
-
-
-
-
 
 class ProjectComponentExample : ProjectComponent {
 

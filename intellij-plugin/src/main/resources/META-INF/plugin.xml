@@ -7,26 +7,45 @@
       This plugin demonstrates how a plugin can run code as soon as it's loaded.
     ]]></description>
 
+    <idea-version since-build="193.*"/>
+
     <extensions defaultExtensionNs="com.intellij">
         <!-- Add your extensions here -->
     </extensions>
     <application-components>
         <component>
-            <implementation-class>ApplicationComponentExample</implementation-class>
+            <implementation-class>components.ApplicationComponentExample</implementation-class>
         </component>
     </application-components>
     <project-components>
         <component>
-            <implementation-class>ProjectComponentExample</implementation-class>
+            <implementation-class>components.ProjectComponentExample</implementation-class>
         </component>
     </project-components>
 
     <extensions defaultExtensionNs="com.intellij">
-        <preloadingActivity implementation="PreLoadingActivity"/>
+        <preloadingActivity implementation="extensions.PreLoadingActivity"/>
 
-        <postStartupActivity implementation="PostStartupActivity"/>
+        <postStartupActivity implementation="extensions.PostStartupActivity"/>
 
-        <postStartupActivity implementation="ProjectFileSearch"/>
+        <postStartupActivity implementation="extensions.ProjectFileSearch"/>
     </extensions>
+
+    <projectListeners>
+        <listener class="listeners.MyToolwindowListener" topic="com.intellij.openapi.wm.ex.ToolWindowManagerListener" />
+    </projectListeners>
+
+    <actions>
+        <!-- Create a new Greeting menu. -->
+        <group id="MyPlugin.SampleMenu" text="Greeting" description="Greeting menu">
+            <add-to-group group-id="MainMenu" anchor="last" />
+
+            <!-- Add action.HelloAction to the Greeting menu. -->
+            <action id="MyPlugin.actions.HelloAction" class="action.HelloAction" text="Hello" description="Says hello"
+                    icon="/icons/ic_check_circle.svg">
+                <add-to-group group-id="MainMenu" anchor="first" />
+            </action>
+        </group>
+    </actions>
 
 </idea-plugin>

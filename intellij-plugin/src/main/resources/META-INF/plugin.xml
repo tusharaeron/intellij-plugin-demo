@@ -1,0 +1,32 @@
+<idea-plugin>
+    <id>intellij-plugin.intellij-plugin</id>
+    <name>[Demo] Intellij example</name>
+    <vendor email="support@company.com" url="http://www.company.com">Company</vendor>
+
+    <description><![CDATA[
+      This plugin demonstrates how a plugin can run code as soon as it's loaded.
+    ]]></description>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+    </extensions>
+    <application-components>
+        <component>
+            <implementation-class>ApplicationComponentExample</implementation-class>
+        </component>
+    </application-components>
+    <project-components>
+        <component>
+            <implementation-class>ProjectComponentExample</implementation-class>
+        </component>
+    </project-components>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <preloadingActivity implementation="PreLoadingActivity"/>
+
+        <postStartupActivity implementation="PostStartupActivity"/>
+
+        <postStartupActivity implementation="ProjectFileSearch"/>
+    </extensions>
+
+</idea-plugin>
